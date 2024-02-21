@@ -1,7 +1,7 @@
 #include "sort.h"
 void swap(int *x, int *y);
-size_t partition(int *array, size_t low, size_t high, size_t size);
-void q_sort(int *array, size_t low, size_t high, size_t size);
+int partition(int *array, int low, int high, size_t size);
+void q_sort(int *array, int low, int high, size_t size);
 void quick_sort(int *array, size_t size);
 
 /**
@@ -13,13 +13,9 @@ void quick_sort(int *array, size_t size);
 
 void quick_sort(int *array, size_t size)
 {
-	size_t low, high;
-
-	low = 0;
-	high = size - 1;
 	if (size < 2 || !array)
 		return;
-	q_sort(array, low, high, size);
+	q_sort(array, 0, size - 1, size);
 }
 /**
  * q_sort - help for quick sort function
@@ -28,9 +24,9 @@ void quick_sort(int *array, size_t size)
  * @high: highest index
  * @size: size of array
  */
-void q_sort(int *array, size_t low, size_t high, size_t size)
+void q_sort(int *array, int low, int high, size_t size)
 {
-	size_t pivot;
+	int pivot;
 
 	if (low < high)
 	{
@@ -49,9 +45,9 @@ void q_sort(int *array, size_t low, size_t high, size_t size)
  * @size: array size
  * Return: pivot
  */
-size_t partition(int *array, size_t low, size_t high, size_t size)
+int partition(int *array, int low, int high, size_t size)
 {
-	size_t i, j;
+	int i, j;
 
 	i = low;
 	for (j = low; j < high; j++)
