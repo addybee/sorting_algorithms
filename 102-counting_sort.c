@@ -19,10 +19,10 @@ void counting_sort(int *array, size_t size)
 	for (i = 1; i < size; i++)
 	{
 		if (array[i] > max)
-		       max = array[i];
+			max = array[i];
 	}
 	count = (int *)malloc(sizeof(int) * (max + 1));
-	output= (int *)malloc(sizeof(int) * size);
+	output = (int *)malloc(sizeof(int) * size);
 	if (!count || !output)
 		return;
 	for (i = 0; i <= (size_t)max; i++)
